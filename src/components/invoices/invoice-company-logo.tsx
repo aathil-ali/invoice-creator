@@ -1,4 +1,5 @@
-import { FC, ReactNode, useRef, useState } from 'react';
+import { FC, ReactNode, useRef } from 'react';
+
 // Mui components.
 import MuiBox from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -29,8 +30,6 @@ interface PlaceholderProps {
   children?: ReactNode;
 }
 const Placeholder: FC<PlaceholderProps> = ({ hasLogo, children }) => {
-
-
   return (
     <MuiBox
       sx={{
@@ -71,11 +70,9 @@ const Placeholder: FC<PlaceholderProps> = ({ hasLogo, children }) => {
 const InvoiceCompanyLogo: FC<Props> = ({ logo, onUploadImage }) => {
   const { editable } = useGenerator();
 
-  const inputRef = useRef<HTMLInputElement>(null);
   logo = defaultLogo;
 
-  const [currentLogo, setCurrentLogo] = useState<string | undefined>(defaultLogo || logo);
-
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleUpload = (): void => {
     inputRef?.current?.click();
@@ -112,20 +109,20 @@ const InvoiceCompanyLogo: FC<Props> = ({ logo, onUploadImage }) => {
         {logo ? (
           <Placeholder hasLogo={true}>
             <>
-              {/* <MuiBox
+              <MuiBox
                 className="choose-image"
                 sx={{ display: 'inline-flex', alignItems: 'center', flexDirection: 'column', justifyContent: 'center' }}
               >
                 <UploadFileIcon sx={{ fontSize: 32, mb: 1.5 }} />
                 <Typography>Upload Image</Typography>
-              </MuiBox> */}
+              </MuiBox>
               <MuiBox component="img" src={logo} sx={{ width: '100%' }} alt="Invoice logo" />
             </>
           </Placeholder>
         ) : (
           <Placeholder hasLogo={false}>
-            {/* <UploadFileIcon sx={{ fontSize: 32, mb: 1.5 }} />
-            <Typography>Upload Image</Typography> */}
+            <UploadFileIcon sx={{ fontSize: 32, mb: 1.5 }} />
+            <Typography>Upload Image</Typography>
           </Placeholder>
         )}
 
@@ -149,10 +146,9 @@ const InvoiceCompanyLogo: FC<Props> = ({ logo, onUploadImage }) => {
       )}
     </Box>
   ) : (
-    <></>
-    // <Box style={{ maxWidth: 110, height: 'auto', marginBottom: '12px' }}>
-    //   {currentLogo && <Image source={String(currentLogo)} />}
-    // </Box>
+    <Box style={{ maxWidth: 110, height: 'auto', marginBottom: '12px' }}>
+      {logo ? <Image source={String(logo)} /> : <Box style={{ height: '10px' }} />}
+    </Box>
   );
 };
 export default InvoiceCompanyLogo;
