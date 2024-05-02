@@ -22,6 +22,8 @@ const InvoiceTermAndConditions: FC<Props> = ({ terms }) => {
     setInvoice({ ...invoice, terms: e.target.value });
   };
 
+  terms = "Make all cheques payable to: Total due within 15 days.   \nOverdue accounts are subject to a service charge of 1% per month."
+
   return (
     <Box style={{ width: '100%' }}>
       <Typography variant="h6" style={{ fontWeight: 'bold', marginBottom: editable ? 1 : createSpacing(1) }}>

@@ -13,7 +13,7 @@ export interface IInvoiceContext {
 /** Initial state */
 export const initialInvoiceData: IInvoice = {
   fileName: '',
-  invoiceNumber: '#INV123',
+  invoiceNumber: '#INV183',
   date: String(new Date()),
   due: String(new Date()),
   sender: {
@@ -41,7 +41,7 @@ export const initialInvoiceData: IInvoice = {
     email: '',
   },
   items: [],
-  taxRate: 10,
+  taxRate: 13,
   terms:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   notes: '',

@@ -53,7 +53,7 @@ const InvoiceItemHeader: FC = () => {
         </Box>
         <Box style={{ width: '15%', ...colStyles }}>
           {renderDivider}
-          <Typography style={{ fontWeight: 600, marginLeft: '12px' }}>{'Rate'}</Typography>
+          <Typography style={{ fontWeight: 600, marginLeft: '12px' }}>{'Hours'}</Typography>
         </Box>
         <Box style={{ width: '20%', ...colStyles }}>
           {renderDivider}

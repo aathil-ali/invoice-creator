@@ -35,8 +35,18 @@ const InvoiceSender: FC<Props> = ({ from, handleOpenDialog }) => {
   const hasSender = (): boolean => {
     return checkProperties(from as unknown as Record<string, string>);
   };
+  from.companyName = "MN Top securty";
+  from.addressLine1 = "6064 Fullerton Crest, Mississauga, ON,";
+  from.city = "Mississauga";
+  from.state = "Ontario";
+  from.country = "Canada";
+  from.postalCode = "L5N 3A4";
+  from.email = "info@mntopsecurity.com";
+  from.phone = "416-4505837";
+
 
   return (
+
     <EditableAreaWrapper>
       <Box style={{ position: 'relative', zIndex: 1 }} onClick={handleOpenDialog as () => void}>
         {hasSender() ? (
@@ -64,6 +74,8 @@ const InvoiceSender: FC<Props> = ({ from, handleOpenDialog }) => {
             <Typography>{from.country || null}</Typography>
             <Typography>{from.postalCode || null}</Typography>
             <Typography>{from.email || null}</Typography>
+            <Typography>{'www.mntopsecurity.com'}</Typography>
+
             <Typography>{from.phone || null}</Typography>
           </>
         ) : editable ? (
